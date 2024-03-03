@@ -10,12 +10,13 @@ def restoration(path):
 
     height, width, _ = image.shape
 
-    # Görüntüyü maksimum boyutlara uyacak şekilde yeniden boyutlandır
+    
+    # Resize image to fit maximum dimensions
     if width > max_width or height > max_height:
-        # Yeniden boyutlandırma oranını hesapla
+        # Calculate ratio
         ratio = min(max_width / width, max_height / height)
 
-        # Yeniden boyutlandırma işlemi
+        # resize 
         resized_image = cv2.resize(image, (int(width * ratio), int(height * ratio)))
     else:
         resized_image = image
@@ -45,7 +46,7 @@ def restoration(path):
     avg_g = np.mean(green_channel)
     avg_r = np.mean(red_channel)
 
-    # ortalama ile hizalama
+    # Alignment with avarage 
     B_aligned = blue_channel * (avg_g / avg_b)
     G_aligned = green_channel * (avg_g / avg_g)
     R_aligned = red_channel * (avg_g / avg_r)
