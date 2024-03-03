@@ -42,6 +42,7 @@ def restoration(path):
 
     cv2.imshow('Aligned first', aligned_image)
 
+    # GRAY WORLD ALGORITHM
     avg_b = np.mean(blue_channel)
     avg_g = np.mean(green_channel)
     avg_r = np.mean(red_channel)
